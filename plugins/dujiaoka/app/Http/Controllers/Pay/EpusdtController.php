@@ -27,6 +27,7 @@ class EpusdtController extends PayController
             $parameter = [
                 "amount" => (float)$this->order->actual_price,//原价
                 "order_id" => $this->order->order_sn, //可以是用户ID,站内商户订单号,用户名
+                "type" => $this->payGateway->merchant_key,
                 'redirect_url' => route('epusdt-return', ['order_id' => $this->order->order_sn]),
                 'notify_url' => url($this->payGateway->pay_handleroute . '/notify_url'),
             ];
